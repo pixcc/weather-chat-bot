@@ -9,6 +9,7 @@ import json
 import psycopg2
 import requests
 
+
 SET_LOCATION_MENU = 1
 
 
@@ -48,8 +49,8 @@ def get_location_from_db(user_id: int) -> Optional[Tuple[float, float]]:
             cur: cursor
             conn: connection
             cur.execute(f"""SELECT latitude, longitude FROM users WHERE id = {user_id}""")
-            user: Optional[Tuple[float, float]] = cur.fetchone()
-    return user
+            location: Optional[Tuple[float, float]] = cur.fetchone()
+    return location
 
 
 def current_location(update: Update, context: CallbackContext) -> int:
