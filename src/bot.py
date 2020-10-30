@@ -48,7 +48,7 @@ def get_location_from_db(user_id: int) -> Optional[Tuple[float, float]]:
         with conn.cursor() as cur:
             cur: cursor
             conn: connection
-            cur.execute(f"""SELECT latitude, longitude FROM users WHERE id = {user_id}""")
+            cur.execute(f"SELECT latitude, longitude FROM users WHERE id = {user_id}")
             location: Optional[Tuple[float, float]] = cur.fetchone()
     return location
 
